@@ -397,7 +397,6 @@ function hw2_10(){
     // HW 2.10
     let x = document.getElementById("n").value;
     printHW.innerHTML = "";
-    let pattern = '';
 
     for (let i = 1; i <= x; i++) {
         let line = '';
@@ -415,6 +414,60 @@ function hw2_10(){
     }
 
 }
+
+function hw3_1(){
+    // HW 3.1
+    let x = document.getElementById("n").value;
+    printHW.innerHTML = "";
+    let ans = ''
+    let num = x
+    for (let i = 0; i < x-1; i++) {
+        for (let j = 0; j < x; j++) {
+            if(num-1 > j){
+                ans += "-"
+            }
+            else{
+                ans += "*"
+            }  
+        }
+        for (let j = 0; j < x-1; j++) {
+            if (i <= j ) {
+                ans += "-"
+               
+            } else {
+                ans += "*"
+            }
+        }
+        ans += "<br>"
+        num--
+    }
+    num = x-1
+    for (let i = 0; i < x; i++) {
+        for (let j = 0; j < x; j++) {
+            if (i <= j ) {
+                ans += "*"
+               
+            } else {
+                
+                ans += "-"
+            }
+        }
+        for (let j = 0; j < x-1; j++) {
+           
+            if(num > j){
+                ans += "*"
+            }
+            else{
+                ans += "-"
+            }    
+        }
+        num--
+        ans += "<br>"
+    }
+    printHW.innerHTML=ans;
+}
+
+
 
 function hw3_3() {
     // HW 3.3
