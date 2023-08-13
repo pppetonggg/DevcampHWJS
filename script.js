@@ -467,7 +467,62 @@ function hw3_1(){
     printHW.innerHTML=ans;
 }
 
-
+function hw3_2(){
+    // HW 3.2
+    let x = document.getElementById("n").value;
+    printHW.innerHTML = "";
+    let ans = ''
+    let num = x
+    let sum = 1
+    for (let i = 0; i < x-1; i++) {
+        for (let j = 0; j < x; j++) {
+            if(num-1 > j){
+                ans += "-"
+            }
+            else{
+                ans += sum 
+                sum++
+            }  
+        }
+        for (let j = 0; j < x-1; j++) {
+            if (i <= j ) {
+                ans += "-"
+               
+            } else {
+                ans += sum 
+                sum++
+            }
+        }
+        ans += "<br>"
+        num--
+    }
+    num = x-1
+    for (let i = 0; i < x; i++) {
+        for (let j = 0; j < x; j++) {
+            if (i <= j ) {
+                ans += sum 
+                sum++
+               
+            } else {
+                
+                ans += "-"
+            }
+        }
+        for (let j = 0; j < x-1; j++) {
+           
+            if(num > j){
+                ans += sum 
+                sum++
+            }
+            else{
+                ans += "-"
+            }    
+        }
+        num--
+        ans += "<br>"
+    }
+    printHW.innerHTML = ans
+}
 
 function hw3_3() {
     // HW 3.3
@@ -487,4 +542,70 @@ function hw3_3() {
         // console.log("y:"+y);
         printHW.innerHTML += "<p>" + text + "</p>";
     }
+}
+
+function hw3_4(){
+    // HW 3.4
+    let x = document.getElementById("n").value;
+    printHW.innerHTML = "";
+    let ans = ''
+    let num = x
+    const list = []
+    for (let i = 0; i < x-1; i++) {
+        let o = []
+        for (let j = 0; j < x; j++) {
+            if(num-1 > j){
+                o.push("-") 
+            }
+            else{
+                o.push("*") 
+            }  
+        }
+        for (let j = 0; j < x-1; j++) {
+            if (i <= j ) {
+                o.push("-")
+               
+            } else {
+                o.push("*")
+            }
+        }
+        list.push(o)
+        num--
+    }
+    num = x-1
+    for (let i = 0; i < x; i++) {
+        o = []
+        for (let j = 0; j < x; j++) {
+            if (i <= j ) {
+                o.push("*")
+               
+            } else {
+                
+                o.push("-")
+            }
+        }
+        for (let j = 0; j < x-1; j++) {
+           
+            if(num > j){
+                o.push("*")
+            }
+            else{
+                o.push("-")
+            }    
+        }
+        list.push(o)
+        num--
+        
+    }
+    for (let i = 0; i < list.length; i++) {
+
+        for (let j = 0; j < list.length; j++) {
+            ans += list[i][j].toString()
+            
+        }
+        ans += '<br>'
+        
+        
+    }
+    printHW.innerHTML=ans
 }
