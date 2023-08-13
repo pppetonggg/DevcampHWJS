@@ -329,38 +329,92 @@ function hw2_7() {
     }
 }
   
-
-
-function generatePattern(n) {
-    let patternHTML = '';
-    let currentNumber = 1;
-  
-    for (let i = 1; i <= n * 2; i++) {
-      let line = '';
-  
-      if (i % 2 === 0) {
-        line += '-';
-      }
-  
-      for (let j = 1; j <= i; j++) {
-        line += currentNumber.toString();
-  
-        if (j < i) {
-          line += ' ';
-        }
-        currentNumber++;
-      }
-  
-      patternHTML += '<p>' + line + '</p>';
-    }
-  
-    return patternHTML;
-  }
-  
-  function hw2_8() {
+function hw2_8() {
+    // HW 2.8
     let x = document.getElementById("n").value;
-    printHW.innerHTML = generatePattern(x);
-  }
+    printHW.innerHTML = "";
+    let ans = ''
+    let num = x
+    let sum = 1
+    for (let i = 0; i < x; i++) {
+        for (let j = 0; j < x; j++) {
+            if(num-1 > j){
+                ans += "-"
+            }
+            else{
+                ans += sum 
+                sum++
+            }
+        }
+        num--
+        ans += "<br>"
+    }
+    for (let i = 0; i < x-1; i++) {
+        for (let j = 0; j < x; j++) {
+            if (i < j ) {
+                ans += sum 
+                sum++
+            } else {
+                
+                ans += "-"
+            }
+        }
+        ans += "<br>"
+    }
+    printHW.innerHTML = "<p>"+ans+"</p>";
+}
+
+function hw2_9(){
+    // HW 2.9
+    let x = document.getElementById("n").value;
+    printHW.innerHTML = "";
+    let ans = ''
+    let num = x
+    for (let i = 0; i < x; i++) {
+        ans = ''
+        for (let j = 0; j < x; j++) {
+            if(num-1 > j){
+                ans += "-"
+            }
+            else{
+                ans += "*"
+            }  
+        }
+        for (let j = 0; j < x-1; j++) {
+            if (i <= j ) {
+                ans += "-"
+               
+            } else {
+                ans += "*"
+            }
+        }
+        printHW.innerHTML+="<p>"+ans+"</p>"
+        num--
+    }
+}
+
+function hw2_10(){
+    // HW 2.10
+    let x = document.getElementById("n").value;
+    printHW.innerHTML = "";
+    let pattern = '';
+
+    for (let i = 1; i <= x; i++) {
+        let line = '';
+        
+        if (i === 1) {
+            line += '-'.repeat(x - i);
+            line += '*';
+            line += '-'.repeat(x - i);
+        } else {
+            line += '-'.repeat(x - i);
+            line += '*'.repeat((i - 1) * 2 + 1);
+            line += '-'.repeat(x - i);
+        }
+        printHW.innerHTML+="<p>"+line+"</p>";
+    }
+
+}
 
 function hw3_3() {
     // HW 3.3
